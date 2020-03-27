@@ -1,4 +1,5 @@
-# Assignment A1: HBase
+# Assignment A1: HBase  
+Download the MyPyramid Raw Food Data set from https://catalog.data.gov/dataset/mypyramid-food-raw-data and extract the zipped contents to find Food_Display_Table.xml.  
 This data consists of many pairs of `<Food_Display_Row>` tags. Inside these, each row has a `<Food_Code>` (integer value), `<Display_Name>` (string), and other facts about the food in appropriately named tags.
  
 1. Create a new HBase table called foods with a single column family to store the facts.  
