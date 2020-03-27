@@ -3,11 +3,11 @@ This data consists of many pairs of `<Food_Display_Row>` tags. Inside these, eac
  
 1. Create a new HBase table called foods with a single column family to store the facts.  
 `create ‘foods’, ‘facts’`  
-2. What can be used for the row key?
+2. What can be used for the row key?  
 Food_Code  
 3. What column family options make sense for this data?  
 `Portion_Display_Name`  
-4. Create code for importing the food data into the new table.
+4. Create code for importing the food data into the new table.  
 ```python
 import happybase
 import xml.etree.ElementTree as ET
@@ -35,12 +35,11 @@ def populate():
 
 if __name__ == "__main__":
     populate()
-
- 
 ```
 You can use the streaming XML parsing style used earlier in this chapter for the Wikipedia import script and tailor it to the food data.
 Pipe the food data into your import script on the command line to populate the table.
 You can choose to use Apache Flume instead.  
+
 5. Using the HBase shell, query the foods table for information about your favourite foods.
 You may decide to implement your own map-reduce code instead.  
 We want to find information about "Feta or goat cheese". We use the query `get 'foods','14104400'`. Then to find information about a specific portion display name we use the following query: `get 'foods', '14104400', 'facts:cup crumbled'`. The results are shown in the screenshot below.
